@@ -21,13 +21,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import CreateIcon from "@mui/icons-material/Create";
-import Notifications from "./Notifications";
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import PersonIcon from "@mui/icons-material/Person";
-// import PeopleIcon from "@mui/icons-material/People";
-// import DateRangeIcon from "@mui/icons-material/DateRange";
-import VideocamIcon from "@mui/icons-material/Videocam";
+import PeopleIcon from "@mui/icons-material/People";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import EmailIcon from "@mui/icons-material/Email";
+// import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import GavelIcon from '@mui/icons-material/Gavel';
+import PostAddIcon from "@mui/icons-material/PostAdd";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LogoutIcon from "@mui/icons-material/Logout";
 
@@ -48,7 +47,7 @@ const Navbar = () => {
   // SIGN OUT FUNCTION
   const handleSignout = () => {
     firebase.auth().signOut();
-    history.push("/#");
+    history.push("/");
   };
 
   return (
@@ -56,7 +55,7 @@ const Navbar = () => {
       <CssBaseline />
 
       {/* APPBAR */}
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#ff669e" }}>
+      <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -71,7 +70,7 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Hamrowakil (Client)
+            Hamrowakil (Admin)
           </Typography>
         </Toolbar>
       </AppBar>
@@ -92,7 +91,7 @@ const Navbar = () => {
         {/* LIST OF NAVIGATIONS */}
         <List>
           {/* DASHBOARD */}
-          <ListItem button component="a" href="/client/dashboard">
+          <ListItem button component="a" href="/admin/dashboard">
             <Tooltip title="Dashboard" placement="right">
               <ListItemIcon>
                 <DashboardIcon />
@@ -102,63 +101,63 @@ const Navbar = () => {
           </ListItem>
 
           {/* PROFILE */}
-          <ListItem button component="a" href="/client/profile">
-            <Tooltip title="Profile" placement="right">
+          <ListItem button component="a" href="/lawyers">
+            <Tooltip title="Lawyers" placement="right">
               <ListItemIcon>
-                <PersonIcon />
+                <GavelIcon />
               </ListItemIcon>
             </Tooltip>
-            <ListItemText>Profile</ListItemText>
+            <ListItemText>Lawyers</ListItemText>
           </ListItem>
 
-          {/* VIEW DOCTORS/BOOK APPOINTMENTS */}
-          <ListItem button component="a" href="/client/viewdoctors">
-            <Tooltip title="Book Appointment" placement="right">
+          {/* YOUR PATIENTS */}
+          <ListItem button component="a" href="/clients">
+            <Tooltip title="Clients" placement="right">
               <ListItemIcon>
-                <CreateIcon />
+                <PeopleIcon />
               </ListItemIcon>
             </Tooltip>
-            <ListItemText>Book Appointment</ListItemText>
+            <ListItemText>Clients</ListItemText>
           </ListItem>
 
-          {/* NOTIFICATIONS */}
-          <ListItem button component="a" href="/client/notifications">
-            <Tooltip title="Notifications" placement="right">
+          {/* CREATE POST */}
+          <ListItem button component="a" href="/createpost">
+            <Tooltip title="Create Post" placement="right">
               <ListItemIcon>
-                <Notifications />
+                <PostAddIcon />
               </ListItemIcon>
             </Tooltip>
-            <ListItemText>Notifications</ListItemText>
-          </ListItem>
-
-          {/* SCHEDULED MEETINGS */}
-          <ListItem button component="a" href="/client/scheduledmeetings">
-            <Tooltip title="Scheduled Meetings" placement="right">
-              <ListItemIcon>
-                <VideocamIcon />
-              </ListItemIcon>
-            </Tooltip>
-            <ListItemText>Scheduled Meetings</ListItemText>
-          </ListItem>
-
-          {/* PAST APPOINTMENTS */}
-          <ListItem button component="a" href="/client/pastappointments">
-            <Tooltip title="Past Appointments" placement="right">
-              <ListItemIcon>
-                <AssignmentIcon />
-              </ListItemIcon>
-            </Tooltip>
-            <ListItemText>Past Appointments</ListItemText>
+            <ListItemText>Create Post</ListItemText>
           </ListItem>
 
           {/* LATEST UPDATES */}
-          <ListItem button component="a" href="/client/latestupdates">
+          <ListItem button component="a" href="/latestupdates">
             <Tooltip title="Latest Updates" placement="right">
               <ListItemIcon>
                 <NewspaperIcon />
               </ListItemIcon>
             </Tooltip>
             <ListItemText>Latest Updates</ListItemText>
+          </ListItem>
+
+          {/* NOTIFICATIONS */}
+          <ListItem button component="a" href="/notifications">
+            <Tooltip title="Notifications" placement="right">
+              <ListItemIcon>
+                <NotificationsIcon />
+              </ListItemIcon>
+            </Tooltip>
+            <ListItemText>Notifications</ListItemText>
+          </ListItem>
+
+          {/* READ FEEDBACKS */}
+          <ListItem button component="a" href="/feedbacks">
+            <Tooltip title="Read Feedbacks" placement="right">
+              <ListItemIcon>
+                <EmailIcon />
+              </ListItemIcon>
+            </Tooltip>
+            <ListItemText>Read Feedbacks</ListItemText>
           </ListItem>
 
           {/* SIGN OUT */}
@@ -172,9 +171,6 @@ const Navbar = () => {
           </ListItem>
         </List>
       </Drawer>
-      {/* <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-      </Box> */}
     </Box>
   );
 };

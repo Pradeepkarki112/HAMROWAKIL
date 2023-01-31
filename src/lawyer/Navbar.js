@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import firebase from "../Firebase";
 import { styled, useTheme } from "@mui/material/styles";
@@ -21,12 +21,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import PeopleIcon from "@mui/icons-material/People";
 import CreateIcon from "@mui/icons-material/Create";
 import Notifications from "./Notifications";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import PersonIcon from "@mui/icons-material/Person";
-// import PeopleIcon from "@mui/icons-material/People";
-// import DateRangeIcon from "@mui/icons-material/DateRange";
+import DateRangeIcon from "@mui/icons-material/DateRange";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -34,7 +34,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const Navbar = () => {
   const history = useHistory();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   // OPEN AND CLOSE DRAWER FUNCTIONS
   const handleDrawerOpen = () => {
@@ -56,7 +56,7 @@ const Navbar = () => {
       <CssBaseline />
 
       {/* APPBAR */}
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#ff669e" }}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#39ac73" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -71,7 +71,7 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Hamrowakil (Client)
+            Hamrowakil (Lawyers)
           </Typography>
         </Toolbar>
       </AppBar>
@@ -92,7 +92,7 @@ const Navbar = () => {
         {/* LIST OF NAVIGATIONS */}
         <List>
           {/* DASHBOARD */}
-          <ListItem button component="a" href="/client/dashboard">
+          <ListItem button component="a" href="/lawyer/dashboard">
             <Tooltip title="Dashboard" placement="right">
               <ListItemIcon>
                 <DashboardIcon />
@@ -102,7 +102,7 @@ const Navbar = () => {
           </ListItem>
 
           {/* PROFILE */}
-          <ListItem button component="a" href="/client/profile">
+          <ListItem button component="a" href="/lawyer/profile">
             <Tooltip title="Profile" placement="right">
               <ListItemIcon>
                 <PersonIcon />
@@ -111,18 +111,28 @@ const Navbar = () => {
             <ListItemText>Profile</ListItemText>
           </ListItem>
 
-          {/* VIEW DOCTORS/BOOK APPOINTMENTS */}
-          <ListItem button component="a" href="/client/viewdoctors">
-            <Tooltip title="Book Appointment" placement="right">
+          {/* APPOINTMENTS */}
+          <ListItem button component="a" href="/lawyer/appointments">
+            <Tooltip title="Appointments" placement="right">
               <ListItemIcon>
-                <CreateIcon />
+                <AssignmentIcon />
               </ListItemIcon>
             </Tooltip>
-            <ListItemText>Book Appointment</ListItemText>
+            <ListItemText>Appointments</ListItemText>
+          </ListItem>
+
+          {/* YOUR PATIENTS */}
+          <ListItem button component="a" href="/lawyer/yourclients">
+            <Tooltip title="Your Patients" placement="right">
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+            </Tooltip>
+            <ListItemText>Your Patients</ListItemText>
           </ListItem>
 
           {/* NOTIFICATIONS */}
-          <ListItem button component="a" href="/client/notifications">
+          <ListItem button component="a" href="/lawyer/notifications">
             <Tooltip title="Notifications" placement="right">
               <ListItemIcon>
                 <Notifications />
@@ -132,7 +142,7 @@ const Navbar = () => {
           </ListItem>
 
           {/* SCHEDULED MEETINGS */}
-          <ListItem button component="a" href="/client/scheduledmeetings">
+          <ListItem button component="a" href="/lawyer/scheduledmeetings">
             <Tooltip title="Scheduled Meetings" placement="right">
               <ListItemIcon>
                 <VideocamIcon />
@@ -141,18 +151,8 @@ const Navbar = () => {
             <ListItemText>Scheduled Meetings</ListItemText>
           </ListItem>
 
-          {/* PAST APPOINTMENTS */}
-          <ListItem button component="a" href="/client/pastappointments">
-            <Tooltip title="Past Appointments" placement="right">
-              <ListItemIcon>
-                <AssignmentIcon />
-              </ListItemIcon>
-            </Tooltip>
-            <ListItemText>Past Appointments</ListItemText>
-          </ListItem>
-
           {/* LATEST UPDATES */}
-          <ListItem button component="a" href="/client/latestupdates">
+          <ListItem button component="a" href="/lawyer/latestupdates">
             <Tooltip title="Latest Updates" placement="right">
               <ListItemIcon>
                 <NewspaperIcon />
@@ -172,9 +172,6 @@ const Navbar = () => {
           </ListItem>
         </List>
       </Drawer>
-      {/* <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-      </Box> */}
     </Box>
   );
 };

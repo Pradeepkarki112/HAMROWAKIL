@@ -9,15 +9,29 @@ import Home from "./home/home";
 // Lawyer'S PAGES
 import LawyerSignup from "./lawyer/Signup";
 import LawyerSignin from "./lawyer/Signin";
+import LawyerDashboard from "./lawyer/dashboard/Dashboard";
+import LawyerProfile from "./lawyer/Profile";
+import Appointments from "./lawyer/Appointments";
+import LawyerNotifications from "./lawyer/Lawyernotifications";
+import LawyerLatestUpdates from "./lawyer/Latestupdates";
+
 
 // Client'S PAGES
 import ClientSignup from "./client/Signup";
 import ClientSignin from "./client/Signin";
 import ClientDashboard from "./client/dashboard/Dashboard";
 import ClientProfile from "./client/Profile";
-import CompleteDetails from "./client/dashboard/Completedetails";
+import ClientNotifications from "./client/ClientNotifications";
+// import CompleteDetails from "./client/dashboard/Completedetails";
+
 // ADMIN'S PAGES
-import AdminSignin from "./admin/signin";
+import AdminSignin from "./admin/AdminSignin";
+import AdminDashboard from "./admin/Dashboard";
+import Lawyers from "./admin/Lawyers";
+import Clients from "./admin/Clients";
+import CreatePost from "./admin/Createpost";
+import LatestUpdates from "./admin/Latestupdates";
+import Feedbacks from "./admin/Feedbacks";
 
 
 
@@ -53,6 +67,32 @@ const App = () => {
                 {/* Lawyer Pages */}
                 <Route exact path="/lawyersignup" component={LawyerSignup} />
                 <Route exact path="/lawyersignin" component={LawyerSignin} />
+                <Route
+                    exact
+                    path="/lawyer/dashboard"
+                    component={LawyerDashboard}
+                  />
+                  <Route
+                    exact
+                    path="/lawyer/profile"
+                    component={LawyerProfile}
+                  />
+                  <Route
+                    exact
+                    path="/lawyer/appointments"
+                    component={Appointments}
+                  />
+                  <Route
+                    exact
+                    path="/lawyer/notifications"
+                    component={LawyerNotifications}
+                  />
+                  <Route
+                    exact
+                    path="/lawyer/latestupdates"
+                    component={LawyerLatestUpdates}
+                  />
+
 
                 {/* Client Pages */}
                 <Route
@@ -66,23 +106,38 @@ const App = () => {
                   component={ClientSignin}
                 />
                 <Route
-                    exact
-                    path="/client/dashboard"
-                    component={ClientDashboard}
-                  />
-                  <Route
-                    exact
-                    path="/client/completedetails"
-                    component={CompleteDetails}
-                  />
-                  <Route
-                    exact
-                    path="/client/profile"
-                    component={ClientProfile}
-                  />
+                  exact
+                  path="/client/dashboard"
+                  component={ClientDashboard}
+                />
+                <Route
+                  exact
+                  path="/client/profile"
+                  component={ClientProfile}
+                />
+                <Route
+                  exact
+                  path="/patient/notifications"
+                  component={ClientNotifications}
+                />
 
                 {/* Admin Pages */}
                 <Route exact path="/adminsignin" component={AdminSignin} />
+                <Route
+                    exact
+                    path="/admin/dashboard"
+                    component={AdminDashboard}
+                  />
+                  <Route exact path="/lawyers" component={Lawyers} />
+                  <Route exact path="/clients" component={Clients} />
+                  <Route exact path="/createpost" component={CreatePost} />
+                  <Route exact path="/feedbacks" component={Feedbacks} />
+                  <Route
+                    exact
+                    path="/latestupdates"
+                    component={LatestUpdates}
+                  />
+
               </Switch>
               </AuthProvider>
             </Router>
