@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "./Navbar";
 import { db } from "../Firebase";
@@ -93,13 +94,15 @@ const PastAppointments = () => {
                         />
                       </Typography>
 
+                      <Link to={`/lawyerprofile/${appointment.lawyerUID}`}>
                       <Button
                         variant="contained"
-                        href={`/lawyer_profile/${appointment.lawyerUID}`}
+                        // href={`/lawyerprofile/${appointment.lawyerUID}`}
                         target="_blank"
                       >
                         See Lawyer
                       </Button>
+                      </Link>
                     </Grid>
                   </Grid>
                 </ListItem>

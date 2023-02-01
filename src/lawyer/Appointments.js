@@ -75,7 +75,7 @@ const Appointments = () => {
       unreadCount: 1,
     });
 
-    history.push("/lawyer/scheduled_meetings");
+    history.push("/lawyer/scheduledmeetings");
   };
 
   // HANDLE APPOINTMENT CANCEL BUTTON

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import firebase from "../Firebase";
 import { styled, useTheme } from "@mui/material/styles";
 import {
@@ -92,6 +92,7 @@ const Navbar = () => {
         {/* LIST OF NAVIGATIONS */}
         <List>
           {/* DASHBOARD */}
+          <Link to="/lawyer/dashboard">
           <ListItem button component="a" href="/lawyer/dashboard">
             <Tooltip title="Dashboard" placement="right">
               <ListItemIcon>
@@ -100,8 +101,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Dashboard</ListItemText>
           </ListItem>
+          </Link>
 
           {/* PROFILE */}
+          <Link to="/lawyer/profile">
           <ListItem button component="a" href="/lawyer/profile">
             <Tooltip title="Profile" placement="right">
               <ListItemIcon>
@@ -110,8 +113,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Profile</ListItemText>
           </ListItem>
+          </Link>
 
           {/* APPOINTMENTS */}
+          <Link to="/lawyer/appointments">
           <ListItem button component="a" href="/lawyer/appointments">
             <Tooltip title="Appointments" placement="right">
               <ListItemIcon>
@@ -120,8 +125,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Appointments</ListItemText>
           </ListItem>
+          </Link>
 
           {/* YOUR PATIENTS */}
+          <Link to="/lawyer/yourclients">
           <ListItem button component="a" href="/lawyer/yourclients">
             <Tooltip title="Your Clients" placement="right">
               <ListItemIcon>
@@ -130,8 +137,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Your Clients</ListItemText>
           </ListItem>
+          </Link>
 
           {/* NOTIFICATIONS */}
+          <Link to="/lawyer/notifications">
           <ListItem button component="a" href="/lawyer/notifications">
             <Tooltip title="Notifications" placement="right">
               <ListItemIcon>
@@ -140,8 +149,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Notifications</ListItemText>
           </ListItem>
+          </Link>
 
           {/* SCHEDULED MEETINGS */}
+          <Link to="/lawyer/scheduledmeetings">
           <ListItem button component="a" href="/lawyer/scheduledmeetings">
             <Tooltip title="Scheduled Meetings" placement="right">
               <ListItemIcon>
@@ -150,8 +161,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Scheduled Meetings</ListItemText>
           </ListItem>
+          </Link>
 
           {/* LATEST UPDATES */}
+          <Link to="/lawyer/latestupdates">
           <ListItem button component="a" href="/lawyer/latestupdates">
             <Tooltip title="Latest Updates" placement="right">
               <ListItemIcon>
@@ -160,6 +173,7 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Latest Updates</ListItemText>
           </ListItem>
+          </Link>
 
           {/* SIGN OUT */}
           <ListItem button onClick={handleSignout}>

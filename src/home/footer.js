@@ -110,7 +110,7 @@ const Footer = () => {
                 label="Email"
                 name="email"
                 autoComplete="email"
-                autoFocus
+                // autoFocus
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 size="small"

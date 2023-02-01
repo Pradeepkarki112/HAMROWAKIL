@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Grid,
@@ -24,12 +25,12 @@ const Register = () => {
               <Typography variant="h5" paragraph sx={raleway}>
                 Sign Up to provide consultations to clients
               </Typography>
-              <Button sx={button} href="/lawyersignup">
-                Sign Up
+              <Button sx={button}>
+              <Link to="/lawyersignup">Sign Up</Link>
               </Button>
 
               <Button sx={button} href="/lawyersignin">
-                Sign In
+              <Link to="/lawyersignin">Sign In</Link>
               </Button>
             </CardContent>
 
@@ -55,12 +56,12 @@ const Register = () => {
               <Typography variant="h5" paragraph sx={raleway}>
                 Sign Up to book appointments with lawyers
               </Typography>
-              <Button sx={button} href="/clientsignup">
-                Sign Up
+              <Button sx={button}>
+              <Link to="/clientsignup">Sign Up</Link>
               </Button>
 
-              <Button sx={button} href="/clientsignin">
-                Sign In
+              <Button sx={button}>
+              <Link to="/clientsignin">Sign In</Link>
               </Button>
             </CardContent>
 
@@ -88,8 +89,8 @@ const Register = () => {
                 provided to them
               </Typography>
 
-              <Button sx={button} href="/adminsignin">
-                Sign In
+              <Button sx={button}>
+              <Link to="/adminsignin">Sign In</Link>
               </Button>
             </CardContent>
 

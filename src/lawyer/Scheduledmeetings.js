@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "./Navbar";
 import {
@@ -67,13 +68,15 @@ const LawyerScheduleMeeting = () => {
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
+                    <Link to={`/lawyer/room/${meeting.meetingID}`}>
                       <Button
                         variant="contained"
                         target="_blank"
-                        href={`/lawyer/room/${meeting.meetingID}`}
+                        // href={`/lawyer/room/${meeting.meetingID}`}
                       >
                         Join
                       </Button>
+                      </Link>
                     </Grid>
                   </Grid>
                 </ListItem>

@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import { db } from "../../Firebase";
 import Chat from "./Chat";
 import Suggestion from "./Suggestion";
-import Feedback from "./Feedback";
+import Update from "./Update";
+import ViewProfile from "./Viewprofile";
 
 const Controls = () => {
   const [meetings, setMeetings] = useState([]);
@@ -26,8 +27,8 @@ const Controls = () => {
       if (meeting.meetingID === meetingCode)
         props = {
           meetingID: meeting.meetingID,
-          lawyerUID: meeting.lawyerUID,
-          clientUID: meeting.clientUID,
+          doctorUID: meeting.doctorUID,
+          patientUID: meeting.patientUID,
         };
     });
   }
@@ -39,8 +40,9 @@ const Controls = () => {
           return (
             <>
               <Chat {...props} />
+              <ViewProfile {...props} />
               <Suggestion {...props} />
-              <Feedback {...props} />
+              <Update {...props} />
             </>
           );
       })}

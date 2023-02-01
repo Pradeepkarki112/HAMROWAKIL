@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { db } from "../Firebase";
 import { useAuth } from "../contexts/AuthContext";
@@ -73,7 +74,7 @@ const ViewLawyers = () => {
                         )
                           return lawyer;
                         else if (
-                          lawyer.medicalSpeciality
+                          lawyer.lawSpeciality
                             .toLowerCase()
                             .includes(search.toLowerCase())
                         )
@@ -109,9 +110,9 @@ const ViewLawyers = () => {
                                 gutterBottom
                                 sx={{ fontWeight: "bold" }}
                               >
-                                {lawyer.name} <br />
-                                {lawyer.medicalSpeciality} <br />
-                                {lawyer.city} <br />
+                                Name: {lawyer.name} <br />
+                                Speciality: {lawyer.medicalSpeciality} <br />
+                                City: {lawyer.city} <br />
                                 Time Slot :{" "}
                                 {new Date(
                                   lawyer.startTime.seconds * 1000
@@ -133,13 +134,15 @@ const ViewLawyers = () => {
                             </Grid>
 
                             <Grid item xs={12} sm={3} md={3}>
+                            <Link to={`/lawyerprofile/${lawyer.uid}`}>
                               <Button
                                 variant="contained"
-                                href={`/lawyer_profile/${lawyer.uid}`}
+                                // href={`/lawyerprofile/${lawyer.uid}`}
                                 target="_blank"
                               >
                                 See more
                               </Button>
+                              </Link>
                             </Grid>
                           </Grid>
                         </ListItem>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../Firebase";
@@ -57,13 +58,15 @@ const ClientScheduledMeetings = () => {
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
+                    <Link to={`/client/room/${meeting.meetingID}`}>
                       <Button
                         variant="contained"
                         target="_blank"
-                        href={`/client/room/${meeting.meetingID}`}
+                        // href={`/client/room/${meeting.meetingID}`}
                       >
                         Join
                       </Button>
+                      </Link>
                     </Grid>
                   </Grid>
                 </ListItem>

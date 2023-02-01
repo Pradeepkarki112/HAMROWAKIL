@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 const Appointments = (props) => {
   const [suggestions, setSuggestions] = useState([]);
 
-  ///FETCHING ALL PRESCRIPTIONS FROM DATABASE
+  ///FETCHING ALL SUGGESTIONS FROM DATABASE
   useEffect(() => {
     db.collection(
       `lawyers/${props.lawyerUID}/clients/${props.patientUID}/suggestions`

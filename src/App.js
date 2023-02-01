@@ -18,6 +18,7 @@ import LawyerLatestUpdates from "./lawyer/Latestupdates";
 import Client from "./lawyer/Client";
 import YourClients from "./lawyer/Yourclients";
 import LawyerScheduleMeeting from "./lawyer/Scheduledmeetings";
+import LawyerRoom from "./lawyer/videoMeeting/Room";
 
 
 // Client'S PAGES
@@ -32,6 +33,7 @@ import Lawyer from "./client/Lawyer";
 import ClientScheduledMeetings from "./client/Scheduledmeetings";
 import ClientLatestUpdates from "./client/Latestupdates";
 import PastAppointments from "./client/Pastappointments";
+import ClientRoom from "./client/videoMeeting/Room";
 
 // ADMIN'S PAGES
 import AdminSignin from "./admin/AdminSignin";
@@ -116,6 +118,11 @@ const App = () => {
                     path="/lawyer/scheduledmeetings"
                     component={LawyerScheduleMeeting}
                   />
+                  <Route
+                    exact
+                    path="/lawyer/room/:roomID"
+                    component={LawyerRoom}
+                  />
 
 
                 {/* Client Pages */}
@@ -174,6 +181,11 @@ const App = () => {
                   exact
                   path="/client/pastappointments"
                   component={PastAppointments}
+                />
+                <Route
+                  exact
+                  path="/client/room/:roomID"
+                  component={ClientRoom}
                 />
               
 

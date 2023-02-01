@@ -88,22 +88,17 @@ export const box = {
   alignItems: "center",
 };
 
-// export const controls = {
-//   top: "auto",
-//   bottom: 0,
-//   backgroundColor: "#021117",
-//   alignItems: "center",
-// };
+export const controls = {
+  top: "auto",
+  bottom: 0,
+  backgroundColor: "#021117",
+  alignItems: "center",
+};
 
-// export const controlsToolbar = {
-//   alignItems: "center",
-//   [theme.breakpoints.down("md")]: {
-//     paddingLeft: "0",
-//     marginLeft: "0",
-//   },
-// };
-
-
-
-
-
+export const controlsToolbar = {
+  alignItems: "center",
+  [theme.breakpoints.down("md")]: {
+    paddingLeft: "0",
+    marginLeft: "0",
+  },
+};

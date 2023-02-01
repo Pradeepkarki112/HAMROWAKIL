@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import io from "socket.io-client";
 import Peer from "simple-peer";
 import styled from "styled-components";
@@ -45,7 +44,7 @@ const videoConstraints = {
   width: window.innerWidth / 2,
 };
 
-const ClientRoom = (props) => {
+const LawyerRoom = (props) => {
   const [peers, setPeers] = useState([]);
   const [stream, setStream] = useState();
   const [audioMuted, setAudioMuted] = useState(false);
@@ -238,9 +237,9 @@ const ClientRoom = (props) => {
           <WhiteBoard />
            */}
           <Tooltip title="End Call" placement="top">
-             <IconButton
+            <IconButton
               onClick={leaveMeeting}
-              href="/client/pastappointments"
+              href="/lawyer/yourclients"
               style={{ color: "#9d2f42" }}
             >
               <CallEndIcon />
@@ -252,4 +251,4 @@ const ClientRoom = (props) => {
   );
 };
 
-export default ClientRoom;
+export default LawyerRoom;

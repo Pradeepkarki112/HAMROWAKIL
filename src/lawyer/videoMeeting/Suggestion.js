@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../Firebase";
+import { useAuth } from "../../contexts/AuthContext";
 import {
   IconButton,
   Button,
+  TextField,
   Dialog,
   DialogActions,
   DialogContent,
@@ -15,13 +17,16 @@ import {
   Tooltip,
 } from "@mui/material";
 import MedicationIcon from "@mui/icons-material/Medication";
+import SendIcon from "@mui/icons-material/Send";
 import DownloadIcon from "@mui/icons-material/Download";
 import { jsPDF } from "jspdf";
 
 const Suggestion = (props) => {
   const [open, setOpen] = useState(false);
+  const { currentUser } = useAuth();
   const [lawyers, setLawyers] = useState([]);
   const [clients, setClients] = useState([]);
+  const [suggestion, setSuggestion] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
   var lawyerName = "";
@@ -46,7 +51,7 @@ const Suggestion = (props) => {
     });
   }, []);
 
-  ///FETCHING ALL SUGGESTIONS FROM DATABASE
+  //FETCHING ALL SUGGESTIONS FROM DATABASE
   useEffect(() => {
     db.collection(
       `lawyers/${props.lawyerUID}/clients/${props.clientUID}/suggestions`
@@ -83,6 +88,27 @@ const Suggestion = (props) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  //SEND SUGGESTION FUNCTION
+  const sendSuggestion = (e) => {
+    e.preventDefault();
+
+    //PUSHING MESSAGE IN DATABASE
+    db.collection("lawyers")
+      .doc(`${props.lawyerUID}`)
+      .collection("clients")
+      .doc(`${props.clientUID}`)
+      .collection("suggestions")
+      .add({
+        suggestion: suggestion,
+        senderUid: props.lawyerUID,
+        senderEmail: currentUser.email,
+        sentAt: new Date(),
+        appointmentID: props.meetingID,
+      });
+
+    setSuggestion("");
   };
 
   //DOWNLOAD SUGGESTION FUNCTION
@@ -134,6 +160,11 @@ const Suggestion = (props) => {
         <DialogContent>
           <DialogContentText>
             <List>
+              <ListItem style={{ margin: "0" }}>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  {currentUser.email}
+                </Typography>
+              </ListItem>
               {suggestions.map((suggest) => {
                 if (suggest.appointmentID === props.meetingID)
                   return (
@@ -146,8 +177,24 @@ const Suggestion = (props) => {
               })}
             </List>
           </DialogContentText>
-        </DialogContent>
 
+          {/* FORM TO WRITE SUGGESTION */}
+
+          <form onSubmit={sendSuggestion}>
+            <TextField
+              id="outlined"
+              required
+              label="Suggestion"
+              color="primary"
+              placeholder="Enter suggestion..."
+              value={suggestion}
+              onChange={(e) => {
+                setSuggestion(e.target.value);
+              }}
+            />
+            <Button type="submit" startIcon={<SendIcon />} />
+          </form>
+        </DialogContent>
         <DialogActions>
           {/* DOWNLOAD REPORT BUTTON */}
           <Button

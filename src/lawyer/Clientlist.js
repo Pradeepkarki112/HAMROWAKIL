@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../Firebase";
 import { Avatar, Button, Grid } from "@mui/material";
 import Title from "./dashboard/Title";
@@ -35,13 +36,15 @@ const ClientList = (props) => {
               </Grid>
 
               <Grid item xs={12} sm={3} md={3}>
+              <Link to={`/clientprofile/${props.uid}`}>
                 <Button
                   variant="contained"
-                  href={`/client_profile/${props.uid}`}
+                  // href={`/clientprofile/${props.uid}`}
                   target="_blank"
                 >
                   See Profile
                 </Button>
+                </Link>
               </Grid>
             </Grid>
           );

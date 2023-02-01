@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import firebase from "../Firebase";
 import { styled, useTheme } from "@mui/material/styles";
 import {
@@ -22,7 +22,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
 import EmailIcon from "@mui/icons-material/Email";
 // import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import GavelIcon from '@mui/icons-material/Gavel';
@@ -91,6 +91,7 @@ const Navbar = () => {
         {/* LIST OF NAVIGATIONS */}
         <List>
           {/* DASHBOARD */}
+          <Link to="/admin/dashboard">
           <ListItem button component="a" href="/admin/dashboard">
             <Tooltip title="Dashboard" placement="right">
               <ListItemIcon>
@@ -99,8 +100,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Dashboard</ListItemText>
           </ListItem>
+          </Link>
 
           {/* PROFILE */}
+          <Link to="/lawyers">
           <ListItem button component="a" href="/lawyers">
             <Tooltip title="Lawyers" placement="right">
               <ListItemIcon>
@@ -109,8 +112,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Lawyers</ListItemText>
           </ListItem>
+          </Link>
 
           {/* YOUR PATIENTS */}
+          <Link to="/clients">
           <ListItem button component="a" href="/clients">
             <Tooltip title="Clients" placement="right">
               <ListItemIcon>
@@ -119,8 +124,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Clients</ListItemText>
           </ListItem>
+          </Link>
 
           {/* CREATE POST */}
+          <Link to="/createpost">
           <ListItem button component="a" href="/createpost">
             <Tooltip title="Create Post" placement="right">
               <ListItemIcon>
@@ -129,8 +136,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Create Post</ListItemText>
           </ListItem>
+          </Link>
 
           {/* LATEST UPDATES */}
+          <Link to="/latestupdates">
           <ListItem button component="a" href="/latestupdates">
             <Tooltip title="Latest Updates" placement="right">
               <ListItemIcon>
@@ -139,8 +148,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Latest Updates</ListItemText>
           </ListItem>
+          </Link>
 
           {/* NOTIFICATIONS */}
+          {/* <Link to="/notifications">
           <ListItem button component="a" href="/notifications">
             <Tooltip title="Notifications" placement="right">
               <ListItemIcon>
@@ -149,8 +160,10 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Notifications</ListItemText>
           </ListItem>
+          </Link> */}
 
           {/* READ FEEDBACKS */}
+          <Link to="/feedbacks">
           <ListItem button component="a" href="/feedbacks">
             <Tooltip title="Read Feedbacks" placement="right">
               <ListItemIcon>
@@ -159,6 +172,7 @@ const Navbar = () => {
             </Tooltip>
             <ListItemText>Read Feedbacks</ListItemText>
           </ListItem>
+          </Link>
 
           {/* SIGN OUT */}
           <ListItem button onClick={handleSignout}>
