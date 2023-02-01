@@ -14,7 +14,7 @@ const sections = [
   { title: "Register", url: "#register" },
   { title: "Contact", url: "#contact" },
 ];
- 
+
 const theme = createTheme();
 
 const Home = () => {
