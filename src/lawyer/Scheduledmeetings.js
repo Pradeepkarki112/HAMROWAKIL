@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import {
   Button,
   Container,
@@ -11,10 +11,10 @@ import {
 } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { v1 as uuid } from "uuid";
-import { db } from "../firebase";
+import { db } from "../Firebase";
 import { container, listItem } from "./styles";
 
-const Doctor_Schedule_Meeting = () => {
+const LawyerScheduleMeeting = () => {
   const history = useHistory();
   const [meetings, setMeetings] = useState([]);
   const { currentUser } = useAuth();
@@ -30,7 +30,7 @@ const Doctor_Schedule_Meeting = () => {
   const create = () => {
     const id = uuid();
 
-    history.push(`/doctor/room/${id}`);
+    history.push(`/lawyer/room/${id}`);
     alert(`Copy your meeting code : ${id}`);
   };
 
@@ -43,7 +43,7 @@ const Doctor_Schedule_Meeting = () => {
         </Button>
         <List>
           {meetings.map((meeting) => {
-            if (meeting.doctorUID === currentUser.uid)
+            if (meeting.lawyerUID === currentUser.uid)
               return (
                 <ListItem sx={listItem}>
                   <Grid container spacing={3}>
@@ -70,7 +70,7 @@ const Doctor_Schedule_Meeting = () => {
                       <Button
                         variant="contained"
                         target="_blank"
-                        href={`/doctor/room/${meeting.meetingID}`}
+                        href={`/lawyer/room/${meeting.meetingID}`}
                       >
                         Join
                       </Button>
@@ -85,4 +85,4 @@ const Doctor_Schedule_Meeting = () => {
   );
 };
 
-export default Doctor_Schedule_Meeting;
+export default LawyerScheduleMeeting;

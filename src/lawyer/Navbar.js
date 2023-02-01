@@ -123,12 +123,12 @@ const Navbar = () => {
 
           {/* YOUR PATIENTS */}
           <ListItem button component="a" href="/lawyer/yourclients">
-            <Tooltip title="Your Patients" placement="right">
+            <Tooltip title="Your Clients" placement="right">
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
             </Tooltip>
-            <ListItemText>Your Patients</ListItemText>
+            <ListItemText>Your Clients</ListItemText>
           </ListItem>
 
           {/* NOTIFICATIONS */}

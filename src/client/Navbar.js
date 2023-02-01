@@ -112,7 +112,7 @@ const Navbar = () => {
           </ListItem>
 
           {/* VIEW DOCTORS/BOOK APPOINTMENTS */}
-          <ListItem button component="a" href="/client/viewdoctors">
+          <ListItem button component="a" href="/client/viewlawyers">
             <Tooltip title="Book Appointment" placement="right">
               <ListItemIcon>
                 <CreateIcon />

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import firebase from "./Firebase";
 import { AuthProvider } from "./contexts/AuthContext";
 import { CssBaseline } from "@mui/material";
+
 // HOMEPAGE
 import Home from "./home/home";
 
@@ -14,6 +15,9 @@ import LawyerProfile from "./lawyer/Profile";
 import Appointments from "./lawyer/Appointments";
 import LawyerNotifications from "./lawyer/Lawyernotifications";
 import LawyerLatestUpdates from "./lawyer/Latestupdates";
+import Client from "./lawyer/Client";
+import YourClients from "./lawyer/Yourclients";
+import LawyerScheduleMeeting from "./lawyer/Scheduledmeetings";
 
 
 // Client'S PAGES
@@ -22,7 +26,12 @@ import ClientSignin from "./client/Signin";
 import ClientDashboard from "./client/dashboard/Dashboard";
 import ClientProfile from "./client/Profile";
 import ClientNotifications from "./client/ClientNotifications";
-// import CompleteDetails from "./client/dashboard/Completedetails";
+import ViewLawyers from "./client/Viewlawyers";
+import BookAppointment from "./client/Bookappointment";
+import Lawyer from "./client/Lawyer";
+import ClientScheduledMeetings from "./client/Scheduledmeetings";
+import ClientLatestUpdates from "./client/Latestupdates";
+import PastAppointments from "./client/Pastappointments";
 
 // ADMIN'S PAGES
 import AdminSignin from "./admin/AdminSignin";
@@ -92,6 +101,21 @@ const App = () => {
                     path="/lawyer/latestupdates"
                     component={LawyerLatestUpdates}
                   />
+                  <Route
+                    exact
+                    path="/clientprofile/:uid"
+                    component={Client}
+                  />
+                  <Route
+                    exact
+                    path="/lawyer/yourclients"
+                    component={YourClients}
+                  />
+                  <Route
+                    exact
+                    path="/lawyer/scheduledmeetings"
+                    component={LawyerScheduleMeeting}
+                  />
 
 
                 {/* Client Pages */}
@@ -117,9 +141,41 @@ const App = () => {
                 />
                 <Route
                   exact
-                  path="/patient/notifications"
+                  path="/client/notifications"
                   component={ClientNotifications}
                 />
+                <Route
+                  exact
+                  path="/client/viewlawyers"
+                  component={ViewLawyers}
+                />
+                <Route
+                  exact
+                  path="/client/bookappointment"
+                  component={BookAppointment}
+                />
+                <Route exact path="/lawyerprofile/:uid" component={Lawyer} />
+                <Route
+                  exact
+                  path="/client/notifications"
+                  component={ClientNotifications}
+                />
+                <Route
+                  exact
+                  path="/client/scheduledmeetings"
+                  component={ClientScheduledMeetings}
+                />
+                <Route
+                  exact
+                  path="/client/latestupdates"
+                  component={ClientLatestUpdates}
+                />
+                <Route
+                  exact
+                  path="/client/pastappointments"
+                  component={PastAppointments}
+                />
+              
 
                 {/* Admin Pages */}
                 <Route exact path="/adminsignin" component={AdminSignin} />
