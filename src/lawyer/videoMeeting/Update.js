@@ -36,8 +36,8 @@ const Update = (props) => {
     e.preventDefault();
 
     //PUSHING BP DATA IN DATABASE
-    db.collection("patients")
-      .doc(`${props.patientUID}`)
+    db.collection("clients")
+      .doc(`${props.clientUID}`)
       .collection("bloodSugarLevel")
       .doc(`${props.meetingID}`)
       .set({
@@ -49,8 +49,8 @@ const Update = (props) => {
       });
 
     //PUSHING BP DATA IN DATABASE
-    db.collection("patients")
-      .doc(`${props.patientUID}`)
+    db.collection("clients")
+      .doc(`${props.clientUID}`)
       .collection("weight")
       .doc(`${props.meetingID}`)
       .set({

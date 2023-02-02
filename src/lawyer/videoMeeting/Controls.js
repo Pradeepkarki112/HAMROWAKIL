@@ -28,7 +28,7 @@ const Controls = () => {
         props = {
           meetingID: meeting.meetingID,
           doctorUID: meeting.doctorUID,
-          patientUID: meeting.patientUID,
+          clientUID: meeting.clientUID,
         };
     });
   }
