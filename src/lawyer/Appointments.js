@@ -124,7 +124,7 @@ const Appointments = () => {
                                 appointment.timeSlot.seconds * 1000
                               ).getMinutes()}
                               <br />
-                              Symptoms: {appointment.symptoms}
+                              Symptoms: {appointment.markings}
                             </Typography>
                           </Grid>
 
@@ -215,7 +215,7 @@ const Appointments = () => {
                                 appointment.timeSlot.seconds * 1000
                               ).getMinutes()}
                               <br />
-                              Symptoms: {appointment.symptoms}
+                              Symptoms: {appointment.markings}
                             </Typography>
                           </Grid>
                         </Grid>

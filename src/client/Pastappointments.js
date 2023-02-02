@@ -72,7 +72,7 @@ const PastAppointments = () => {
                           appointment.timeSlot.seconds * 1000
                         ).getMinutes()}
                         <br />
-                        <b>Symptoms:</b> {appointment.symptoms}
+                        <b>CaseDetail:</b> {appointment.markings}
                       </Typography>
                       <Typography>
                         <b>Suggestion: </b>

@@ -14,9 +14,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DesktopDateTimePicker from "@mui/lab/DesktopDateTimePicker";
+// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker';
+// import AdapterDateFns from "@mui/lab/AdapterDateFns";
+// import LocalizationProvider from "@mui/lab/LocalizationProvider";
+// import DesktopDateTimePicker from "@mui/lab/DesktopDateTimePicker";
 
 const BookAppointment = (props) => {
   const [open, setOpen] = useState(false);
@@ -158,7 +162,7 @@ const BookAppointment = (props) => {
                   <TextField
                     id="markings"
                     name="markings"
-                    label="Symptoms"
+                    label="CaseDetail"
                     fullWidth
                     size="small"
                     onChange={(e) => setMarkings(e.target.value)}

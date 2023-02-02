@@ -4,7 +4,7 @@ import { db } from "../../Firebase";
 import Chat from "./Chat";
 import Suggestion from "./Suggestion";
 import Update from "./Update";
-import ViewProfile from "./Viewprofile";
+import Viewprofile from "./Viewprofile";
 
 const Controls = () => {
   const [meetings, setMeetings] = useState([]);
@@ -40,7 +40,7 @@ const Controls = () => {
           return (
             <>
               <Chat {...props} />
-              <ViewProfile {...props} />
+              <Viewprofile {...props} />
               <Suggestion {...props} />
               <Update {...props} />
             </>
