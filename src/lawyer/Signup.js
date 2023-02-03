@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {
   Avatar,
   Button,
   CssBaseline,
   Box,
   Paper,
-  Link,
+  // Link,
   Grid,
   TextField,
   Typography,
@@ -261,7 +261,7 @@ const LawyerSignup = () => {
 
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="/lawyersignin" variant="body2">
+                  <Link to={"/lawyersignin"} variant="body2">
                     {"Already have an account? Sign in"}
                   </Link>
                 </Grid>

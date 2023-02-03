@@ -1,12 +1,12 @@
 import React,{useState} from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {
   Avatar,
   Button,
   CssBaseline,
   Box,
   Paper,
-  Link,
+  // Link,
   Grid,
   TextField,
   Typography,
@@ -154,12 +154,12 @@ const LawyerSignin = () => {
 
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link to={"#"} variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/lawyersignup" variant="body2">
+              <Link to={"/lawyersignup"} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
