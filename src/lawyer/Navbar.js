@@ -58,7 +58,7 @@ const Navbar = () => {
       <CssBaseline />
 
       {/* APPBAR */}
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#1976d2" }}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#000300", color: "#00FFFF" }}>
         <Toolbar>
           <IconButton
             color="inherit"

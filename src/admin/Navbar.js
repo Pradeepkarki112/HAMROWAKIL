@@ -29,6 +29,7 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LogoutIcon from "@mui/icons-material/Logout";
+import favicon from '../assets/favicon.png';
 
 const Navbar = () => {
   const history = useHistory();
@@ -55,7 +56,7 @@ const Navbar = () => {
       <CssBaseline />
 
       {/* APPBAR */}
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#00FFFF", color: "#000300"}}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#000300", color: "#00FFFF"}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -69,9 +70,11 @@ const Navbar = () => {
           >
             <MenuIcon />
           </IconButton>
+          <div style={{display: "flex", justifyContent: "space-between"}}>
+          <img src={favicon} className="w-20 pt-8 hover:scale-105 duration-300 cursor-pointer mx-auto mt-[-2.8rem] bg-transparent" alt='Logo' />
           <Typography variant="h6" noWrap component="div">
             Hamrowakil (Admin)
-          </Typography>
+          </Typography></div>
         </Toolbar>
       </AppBar>
 
