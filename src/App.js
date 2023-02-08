@@ -5,7 +5,8 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { CssBaseline } from "@mui/material";
 
 // HOMEPAGE
-import Home from "./home/home";
+// import Home from "./home/home";
+import Home from './website/MainWebsite';
 
 // Lawyer'S PAGES
 import LawyerSignup from "./lawyer/Signup";

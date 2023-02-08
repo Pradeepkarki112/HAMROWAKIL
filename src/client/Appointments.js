@@ -8,7 +8,7 @@ const Appointments = (props) => {
   ///FETCHING ALL SUGGESTIONS FROM DATABASE
   useEffect(() => {
     db.collection(
-      `lawyers/${props.lawyerUID}/clients/${props.patientUID}/suggestions`
+      `lawyers/${props.lawyerUID}/clients/${props.clientUID}/suggestions`
     )
       .orderBy("sentAt", "desc")
       .onSnapshot((snapshot) => {

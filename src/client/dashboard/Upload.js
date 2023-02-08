@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Alert, Avatar, Button, LinearProgress } from "@mui/material";
+import { Alert, Grid, Avatar, Button, LinearProgress } from "@mui/material";
 import Title from "./Title";
 import { db, storage } from "../../Firebase";
 import { avatar } from "../styles";
@@ -76,9 +76,11 @@ const Upload = (props) => {
               <br />
               {imageError && <Alert severity="error">{imageError}</Alert>}
               <br />
+              <Grid item xs={12}>
               <LinearProgress variant="determinate" value={progress} />
               <br />
               <input type="file" onChange={handleChange} />
+              </Grid>
               <br />
               <Button variant="contained" onClick={handleUpload}>
                 Upload

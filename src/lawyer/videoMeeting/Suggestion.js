@@ -14,7 +14,7 @@ import {
   ListItem,
   Typography,
   Divider,
-  Tooltip,
+  Tooltip
 } from "@mui/material";
 import MedicationIcon from "@mui/icons-material/Medication";
 import SendIcon from "@mui/icons-material/Send";
@@ -37,21 +37,21 @@ const Suggestion = (props) => {
 
   var date = new Date().toLocaleDateString("en-US");
 
-  // FETCH LAWYER'S DATA FROM DB
+  // FETCH Lawyer'S DATA FROM DB
   useEffect(() => {
     db.collection("lawyers").onSnapshot((snapshot) => {
       setLawyers(snapshot.docs.map((doc) => doc.data()));
     });
   }, []);
 
-  // FETCH CLIENT'S DATA FROM DB
+  // FETCH Client'S DATA FROM DB
   useEffect(() => {
     db.collection("clients").onSnapshot((snapshot) => {
       setClients(snapshot.docs.map((doc) => doc.data()));
     });
   }, []);
 
-  //FETCHING ALL SUGGESTIONS FROM DATABASE
+  //FETCHING ALL SuggestionS FROM DATABASE
   useEffect(() => {
     db.collection(
       `lawyers/${props.lawyerUID}/clients/${props.clientUID}/suggestions`
@@ -90,7 +90,7 @@ const Suggestion = (props) => {
     setOpen(false);
   };
 
-  //SEND SUGGESTION FUNCTION
+  //SEND Suggestion FUNCTION
   const sendSuggestion = (e) => {
     e.preventDefault();
 
@@ -105,19 +105,19 @@ const Suggestion = (props) => {
         senderUid: props.lawyerUID,
         senderEmail: currentUser.email,
         sentAt: new Date(),
-        appointmentID: props.meetingID,
+        appointmentID: props.meetingID
       });
 
     setSuggestion("");
   };
 
-  //DOWNLOAD SUGGESTION FUNCTION
+  //DOWNLOAD Suggestion FUNCTION
   const downloadSuggestion = () => {
     var doc = new jsPDF();
     var i = 20;
     var j = 120;
     doc.setFontSize("15");
-    doc.addImage("/images/Hamrowakil.png", "PNG", 5, 5, 200, 15);
+    doc.addImage("/images/Medicare.png", "PNG", 5, 5, 200, 15);
     doc.text("Date: ", 20, 30);
     doc.text(date, 50, 30);
     doc.text("Lawyer: ", 20, 40);
@@ -131,8 +131,8 @@ const Suggestion = (props) => {
     doc.text("Gender: ", 20, 90);
     doc.text(clientGender, 50, 90);
     doc.text("Suggestion: ", 20, 110);
-    suggestions.map((suggest) => {
-      doc.text(suggest.suggestion, i, j);
+    suggestions.map((prescript) => {
+      doc.text(prescript.suggestion, i, j);
       j = j + 10;
     });
     doc.save("lawyersuggestion.pdf");
@@ -140,7 +140,7 @@ const Suggestion = (props) => {
 
   return (
     <div>
-      {/* SUGGESTION BUTTON */}
+      {/* Suggestion BUTTON */}
 
       <Tooltip title="Suggestion" placement="top">
         <IconButton onClick={handleClickOpen} style={{ color: "#ffffff" }}>
@@ -148,7 +148,7 @@ const Suggestion = (props) => {
         </IconButton>
       </Tooltip>
 
-      {/* SUGGESTION DIALOG BOX */}
+      {/* Suggestion DIALOG BOX */}
 
       <Dialog
         open={open}
@@ -165,12 +165,12 @@ const Suggestion = (props) => {
                   {currentUser.email}
                 </Typography>
               </ListItem>
-              {suggestions.map((suggest) => {
-                if (suggest.appointmentID === props.meetingID)
+              {suggestions.map((prescript) => {
+                if (prescript.appointmentID === props.meetingID)
                   return (
                     <>
                       <ListItem style={{ margin: "0" }}>
-                        <Typography>{suggest.suggestion}</Typography>
+                        <Typography>{prescript.suggestion}</Typography>
                       </ListItem>
                     </>
                   );
@@ -178,7 +178,7 @@ const Suggestion = (props) => {
             </List>
           </DialogContentText>
 
-          {/* FORM TO WRITE SUGGESTION */}
+          {/* FORM TO WRITE Suggestion */}
 
           <form onSubmit={sendSuggestion}>
             <TextField
@@ -201,7 +201,7 @@ const Suggestion = (props) => {
             onClick={downloadSuggestion}
             style={{
               textTransform: "none",
-              margin: "2%",
+              margin: "2%"
             }}
             startIcon={<DownloadIcon />}
           >

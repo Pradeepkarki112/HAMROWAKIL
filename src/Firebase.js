@@ -16,15 +16,26 @@ import "firebase/storage";
 //   appId: "1:657501614085:web:b1970880f07feac8906c6c"
 // };
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyD-ysr3A2M1Erjuu67rOa0yXt2NSJENtnQ",
+//   authDomain: "hamrowakil-25836.firebaseapp.com",
+//   databaseURL: "https://hamrowakil-25836-default-rtdb.firebaseio.com",
+//   projectId: "hamrowakil-25836",
+//   storageBucket: "hamrowakil-25836.appspot.com",
+//   messagingSenderId: "235916491638",
+//   appId: "1:235916491638:web:b6978f10a8ab5320fcd857",
+//   measurementId: "G-3B5S9K05M1"
+// };
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD-ysr3A2M1Erjuu67rOa0yXt2NSJENtnQ",
-  authDomain: "hamrowakil-25836.firebaseapp.com",
-  databaseURL: "https://hamrowakil-25836-default-rtdb.firebaseio.com",
-  projectId: "hamrowakil-25836",
-  storageBucket: "hamrowakil-25836.appspot.com",
-  messagingSenderId: "235916491638",
-  appId: "1:235916491638:web:b6978f10a8ab5320fcd857",
-  measurementId: "G-3B5S9K05M1"
+ 
+  apiKey: "AIzaSyDZh1rmym_yvA76pBnjns0_3g4A-wEY4gc",
+  authDomain: "hamrowakil-d3a2e.firebaseapp.com",
+  databaseURL: "https://hamrowakil-d3a2e-default-rtdb.firebaseio.com",
+  projectId: "hamrowakil-d3a2e",
+  storageBucket: "hamrowakil-d3a2e.appspot.com",
+  messagingSenderId: "447191334220",
+  appId: "1:447191334220:web:122af65027cb27a8d063e9"
 };
 
 // Initialize Firebase

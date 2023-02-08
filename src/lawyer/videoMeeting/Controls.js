@@ -4,7 +4,7 @@ import { db } from "../../Firebase";
 import Chat from "./Chat";
 import Suggestion from "./Suggestion";
 import Update from "./Update";
-import Viewprofile from "./Viewprofile";
+import ViewProfile from "./Viewprofile";
 
 const Controls = () => {
   const [meetings, setMeetings] = useState([]);
@@ -27,7 +27,7 @@ const Controls = () => {
       if (meeting.meetingID === meetingCode)
         props = {
           meetingID: meeting.meetingID,
-          doctorUID: meeting.doctorUID,
+          lawyerUID: meeting.lawyerUID,
           clientUID: meeting.clientUID,
         };
     });
@@ -40,7 +40,7 @@ const Controls = () => {
           return (
             <>
               <Chat {...props} />
-              <Viewprofile {...props} />
+              <ViewProfile {...props} />
               <Suggestion {...props} />
               <Update {...props} />
             </>
