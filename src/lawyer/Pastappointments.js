@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../Firebase";
 import { Grid, List, ListItem, Typography } from "@mui/material";
 import { container, listItem, typography } from "./styles";
-// import Appointments from "../client/Appointments";
+import Appointments from "../client/Appointments";
 import Title from "./dashboard/Title";
 
 const PastAppointments = (props) => {
@@ -53,11 +53,11 @@ const PastAppointments = (props) => {
                   <Grid item xs={12} sm={6}>
                     <Typography>
                       <b>Suggestion: </b>
-                      {/* <Appointments
+                      <Appointments
                         appointmentID={appointment.id}
                         lawyerUID={appointment.lawyerUID}
                         clientUID={appointment.clientUID}
-                      /> */}
+                      />
                     </Typography>
                   </Grid>
                 </Grid>

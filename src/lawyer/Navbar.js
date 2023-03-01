@@ -94,7 +94,7 @@ const Navbar = () => {
         <Divider />
 
         {/* LIST OF NAVIGATIONS */}
-        <List>
+        <List sx={{ color: "#000300" }}>
           {/* DASHBOARD */}
           <Link to="/lawyer/dashboard">
           <ListItem button component="a" href="/lawyer/dashboard">
@@ -256,6 +256,7 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
+  color: "#00FFFF",
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {

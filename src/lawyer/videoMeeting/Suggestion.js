@@ -197,7 +197,7 @@ const Suggestion = (props) => {
         </DialogContent>
         <DialogActions>
           {/* DOWNLOAD REPORT BUTTON */}
-          <Button
+          {/* <Button
             onClick={downloadSuggestion}
             style={{
               textTransform: "none",
@@ -206,7 +206,7 @@ const Suggestion = (props) => {
             startIcon={<DownloadIcon />}
           >
             Download Suggestion
-          </Button>
+          </Button> */}
           <Button onClick={handleClose} color="primary">
             Close
           </Button>
