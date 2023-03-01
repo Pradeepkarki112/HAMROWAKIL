@@ -7,6 +7,7 @@ import { CssBaseline } from "@mui/material";
 // HOMEPAGE
 // import Home from "./home/home";
 import Home from './website/MainWebsite';
+import About from './website/About';
 
 // Lawyer'S PAGES
 import LawyerSignup from "./lawyer/Signup";
@@ -75,6 +76,7 @@ const App = () => {
               <AuthProvider>
               <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/About" component={About} />
 
                 {/* Lawyer Pages */}
                 <Route exact path="/lawyersignup" component={LawyerSignup} />
