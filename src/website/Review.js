@@ -50,7 +50,7 @@ const Review = () => {
       photo: pic3,
       description:
         "Hamrowakil has made finding and communicating with lawyers a breeze.",
-      name: "Chandra Kala Sharma",
+      name: "Chandra Sharma",
       rating: (
         <div>
           {" "}
@@ -115,30 +115,33 @@ const Review = () => {
   ];
 
   return (
-    <div className="bg-white">
-      <section className="reviews" id="reviews">
-        <h1 className="text-center text-7xl pb-[7rem]"> Client's Review </h1>
+    <div className="flex flex-col gap-10 items-center bg-white">
+      {/* <section className="reviews" id="reviews"> */}
+        <p className="flex justify-center text-7xl "> Client's Review </p>
+        <div className="flex flex-row overflow-auto w-10/12 gap-5 ">
             {Data.map((item) => (
-              <>
+              <div>
               <div
                 key={item.id}
-                className=" shadow-xl bg-[#00FFFF] flex flex-col p-4 md:my-0 my-8 rounded-lg hover:scale-105 duration-300"
+                className="flex flex-col w-96 h-96 shadow-xl bg-[#00FFFF] p-4 sm:my-10 my-8 rounded-lg "
               >
                 <img
                   className="w-20 rounded-full mx-auto mt-[-3rem] bg-transparent"
                   src={item.photo}
                   alt="/"
                 />
+
                 <p className="text-center text-4xl mb-5 font-bold">
                   {item.name}
                 </p>
-                <h2 className="text-xl text-center">{item.description}</h2>
-                <div className="flex justify-center  my-6">{item.rating}</div>
+                <h2 className="flex text-justify text-xl">{item.description}</h2>
+                <div className="flex justify-center my-6">{item.rating}</div>
               </div>
-              <div className="pb-[5rem]" />
-              </>
+              {/* <div className="pb-[5rem]" /> */}
+              </div>
             ))}
-      </section>
+            </div>
+      {/* </section> */}
     </div>
   );
 };
