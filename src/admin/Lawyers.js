@@ -64,7 +64,7 @@ const Lawyers = () => {
                 {lawyers.map((lawyer) => {
                   if (lawyer.isVerified === "pending")
                     return (
-                      <ListItem sx={listItem}>
+                      <ListItem sx={listItem} key={lawyer}>
                         <Grid container>
                           <Grid item xs={12} sm={9}>
                             <Typography>
@@ -111,7 +111,7 @@ const Lawyers = () => {
                 {lawyers.map((lawyer) => {
                   if (lawyer.isVerified == "true")
                     return (
-                      <ListItem sx={listItem}>
+                      <ListItem sx={listItem} key={lawyer}>
                         <Grid container>
                           <Grid item xs={12} sm={9}>
                             <Typography>

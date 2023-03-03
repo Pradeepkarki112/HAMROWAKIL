@@ -9,8 +9,9 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import CallEndIcon from "@mui/icons-material/CallEnd";
 import { controls, controlsToolbar } from "../styles";
-// import Participants from "./participants";
 import Controls from "./Controls";
+
+// import Participants from "./participants";
 // import WhiteBoard from "./whiteBoard/whiteBoard";
 
 const Container = styled.div`
@@ -58,6 +59,9 @@ const LawyerRoom = (props) => {
 
   useEffect(() => {
     socketRef.current = io.connect("/");
+
+    // console.log("RES",io.connect("http://localhost:5000/"))
+    
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((stream) => {
@@ -111,6 +115,10 @@ const LawyerRoom = (props) => {
           setPeers(peers);
         });
       });
+
+      console.log("Peers",peers)
+      
+      console.log("SocketRef",socketRef)
   }, []);
 
   function createPeer(userToSignal, callerID, stream) {
@@ -221,10 +229,16 @@ const LawyerRoom = (props) => {
 
   return (
     <Container style={{ backgroundColor: "#063547", width: "100vw" }}>
+
       <StyledVideo controls muted ref={userVideo} autoPlay playsInline />
+      
+      {JSON.stringify(peers)}
+
       {peers.map((peer) => {
         return <Video key={peer.peerID} peer={peer.peer} />;
+
       })}
+     
 
       {/* CONTROLS */}
 
@@ -233,9 +247,7 @@ const LawyerRoom = (props) => {
           {audioControl}
           {videoControl}
           <Controls />
-          {/* <Participants />
-          <WhiteBoard />
-           */}
+          
           <Tooltip title="End Call" placement="top">
             <IconButton
               onClick={leaveMeeting}

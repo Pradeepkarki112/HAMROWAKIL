@@ -37,11 +37,11 @@ const Controls = () => {
       {meetings.map((meeting) => {
         if (meeting.meetingID === meetingCode)
           return (
-            <>
+            <div key={meeting}>
               <Chat {...props} />
               <Suggestion {...props} />
               <Feedback {...props} />
-            </>
+            </div>
           );
       })}
     </>

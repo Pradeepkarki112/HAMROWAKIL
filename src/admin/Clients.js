@@ -64,7 +64,7 @@ const Clients = () => {
                 {clients.map((client) => {
                   if (client.isVerified === "false")
                     return (
-                      <ListItem sx={listItem}>
+                      <ListItem sx={listItem} key={client}>
                         <Grid container>
                           <Grid item xs={12} sm={9}>
                             <Typography>
@@ -98,7 +98,7 @@ const Clients = () => {
                 {clients.map((client) => {
                   if (client.isVerified == "true")
                     return (
-                      <ListItem sx={listItem}>
+                      <ListItem sx={listItem} key={client}>
                         <Grid container>
                           <Grid item xs={12} sm={9}>
                             <Typography>

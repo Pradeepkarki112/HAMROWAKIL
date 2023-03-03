@@ -137,11 +137,11 @@ const Suggestion = (props) => {
               {suggestions.map((suggest) => {
                 if (suggest.appointmentID === props.meetingID)
                   return (
-                    <>
+                    <div key={suggest}>
                       <ListItem style={{ margin: "0" }}>
                         <Typography>{suggest.suggestion}</Typography>
                       </ListItem>
-                    </>
+                    </div>
                   );
               })}
             </List>

@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const About = () => {
+const Contactus = () => {
   return (
     <div className='bg-[#000300]'>
         <Navbar />
@@ -17,4 +17,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Contactus

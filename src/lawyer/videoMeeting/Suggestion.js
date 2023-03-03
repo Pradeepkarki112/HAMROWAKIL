@@ -168,11 +168,11 @@ const Suggestion = (props) => {
               {suggestions.map((prescript) => {
                 if (prescript.appointmentID === props.meetingID)
                   return (
-                    <>
+                    <div key={prescript}>
                       <ListItem style={{ margin: "0" }}>
                         <Typography>{prescript.suggestion}</Typography>
                       </ListItem>
-                    </>
+                    </div>
                   );
               })}
             </List>

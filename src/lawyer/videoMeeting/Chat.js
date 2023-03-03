@@ -84,7 +84,7 @@ const Chat = (props) => {
             <List>
               {chats.map((chat) => {
                 return (
-                  <>
+                  <div key={chat}>
                     <ListItem style={{ margin: "0" }}>
                       <Typography>
                         {chat.senderEmail}
@@ -93,7 +93,7 @@ const Chat = (props) => {
                         </p>
                       </Typography>
                     </ListItem>
-                  </>
+                  </div>
                 );
               })}
             </List>
