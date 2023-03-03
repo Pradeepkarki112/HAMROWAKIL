@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../Firebase";
 import { useAuth } from "../../contexts/AuthContext";
+import { format } from "date-fns";
+
 import {
+  Box,
   IconButton,
   Button,
   TextField,
@@ -18,6 +21,16 @@ import {
 } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import SendIcon from "@mui/icons-material/Send";
+import { styled } from "@mui/material/styles";
+
+const StyledBox = styled(Box)({
+  position: "fixed",
+  bottom: 0,
+  width: "100%",
+  boxShadow: "0px -4px 4px rgba(0, 0, 0, 0.1)",
+  backgroundColor: "#ffffff",
+  padding: "16px",
+});
 
 const Chat = (props) => {
   const [open, setOpen] = useState(false);
@@ -56,12 +69,18 @@ const Chat = (props) => {
     db.collection(`meetings/${props.meetingID}/chats`)
       .orderBy("sentAt", "asc")
       .onSnapshot((snapshot) => {
-        setChats(snapshot.docs.map((doc) => doc.data()));
+        setChats(
+          snapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }))
+        );
       });
   }, [`${props.meetingID}`]);
+  
 
   return (
-    <div>
+    <>
       {/* CHAT BUTTON */}
 
       <Tooltip title="Chat" placement="top">
@@ -76,6 +95,8 @@ const Chat = (props) => {
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+        fullWidth
+        maxWidth="xs"
       >
         <DialogTitle id="form-dialog-title">CHAT</DialogTitle>
         <Divider />
@@ -84,16 +105,44 @@ const Chat = (props) => {
             <List>
               {chats.map((chat) => {
                 return (
-                  <div key={chat}>
-                    <ListItem style={{ margin: "0" }} key={chat}>
-                      <Typography>
-                        {chat.senderEmail}
-                        <p>
-                          <b>{chat.message}</b>
-                        </p>
-                      </Typography>
-                    </ListItem>
-                  </div>
+                  <ListItem
+                  key={chat.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems:
+                      chat.senderUid === currentUser.uid ? "flex-end" : "flex-start",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    style={{
+                      display: chat.senderUid === currentUser.uid ? "none" : "none",
+                      marginRight: "8px",
+                    }}
+                  >
+                    {chat.senderEmail}
+                  </Typography>
+                  <Box
+                    sx={{
+                      borderRadius: 8,
+                      bgcolor: chat.senderUid === currentUser.uid ? "primary.main" : "#f2f2f2",
+                      color: chat.senderUid === currentUser.uid ? "#fff" : "#000",
+                      padding: "8px 12px",
+                      marginTop: "4px",
+                      maxWidth: "60%",
+                    }}
+                  >
+                    <Typography variant="body2">{chat.message}</Typography>
+                    <Typography
+                      variant="caption"
+                      color="textSecondary"
+                      align={chat.senderUid === currentUser.uid ? "right" : "left"}
+                    >
+                      {/* {format(chat.sentAt.toDate(), "h:mm a")} */}
+                    </Typography>
+                  </Box>
+                </ListItem>
                 );
               })}
             </List>
@@ -102,25 +151,25 @@ const Chat = (props) => {
           {/* FORM TO SEND MESSAGE */}
 
           <form onSubmit={sendMessage}>
-            <TextField
-              id="filled-basic"
-              color="primary"
-              placeholder="Enter message..."
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-            />
-            <Button type="submit" startIcon={<SendIcon />} />
-          </form>
+  <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+    <TextField
+      id="filled-basic"
+      color="primary"
+      placeholder="Enter message..."
+      value={message}
+      onChange={(e) => {
+        setMessage(e.target.value);
+      }}
+      fullWidth
+      autoFocus
+      sx={{ mr: 1 }}
+    />
+    <Button type="submit" startIcon={<SendIcon />} />
+  </Box>
+</form>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Close
-          </Button>
-        </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
 
