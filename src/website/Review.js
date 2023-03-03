@@ -15,7 +15,7 @@ const Review = () => {
       id: 1,
       photo: pic1,
       description:
-        "The platform's ability to search for lawyers by specialty, name, and address, combined with the convenience of appointment scheduling and video calls, made the process of finding legal help stress.",
+        "To search for lawyers combined with the convenience of appointment scheduling and video calls, made the process of finding legal help stress.",
       name: "Balkrishna Dhungel",
       rating: (
         <div>
@@ -32,7 +32,7 @@ const Review = () => {
       id: 2,
       photo: pic2,
       description:
-        "I was skeptical about using an online platform for legal services, but Hamrowakil exceeded my expectations.",
+        "I was skeptical about using an online platform for legal services, but Hamrowakil exceeded my expectations. Amazing!",
       name: "Anuradha Koirala",
       rating: (
         <div>
@@ -49,7 +49,7 @@ const Review = () => {
       id: 3,
       photo: pic3,
       description:
-        "Hamrowakil has made finding and communicating with lawyers a breeze.",
+        "Hamrowakil has made finding and communicating with lawyers a breeze. I refer others to use this amazing site.Love it.",
       name: "Chandra Sharma",
       rating: (
         <div>
@@ -66,8 +66,8 @@ const Review = () => {
       id: 4,
       photo: pic4,
       description:
-        "The platform's appointment scheduling, video calls, and chat feature make for a convenient and efficient experience. Highly recommend it!",
-      name: "Ganga Maya Adhikari",
+        "The platform's appointment scheduling, video calls, and chat feature make for a convenient and efficient experience.",
+      name: "Ganga Adhikari",
       rating: (
         <div>
           {" "}
@@ -99,7 +99,7 @@ const Review = () => {
     {
       id: 6,
       photo: pic6,
-      description: "Using Hamrowakil was a fantastic experience.",
+      description: "Using Hamrowakil was a fantastic experience. Such an amazing website. Very much helpful. Highly recommended",
       name: "Sita Devi Shah",
       rating: (
         <div>
@@ -134,7 +134,7 @@ const Review = () => {
                 <p className="text-center text-4xl mb-5 font-bold">
                   {item.name}
                 </p>
-                <h2 className="flex text-justify text-xl">{item.description}</h2>
+                <h2 className="flex text-center text-xl">{item.description}</h2>
                 <div className="flex justify-center my-6">{item.rating}</div>
               </div>
               {/* <div className="pb-[5rem]" /> */}

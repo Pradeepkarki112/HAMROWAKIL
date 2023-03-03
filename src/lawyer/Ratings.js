@@ -25,7 +25,7 @@ const Ratings = (props) => {
     });
   }
 
-  rating = rating / number;
+  rating = (rating / number).toFixed(1);
 
   return (
     <Paper sx={paper}>

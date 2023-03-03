@@ -37,7 +37,7 @@ const Controls = () => {
       {meetings.map((meeting) => {
         if (meeting.meetingID === meetingCode)
           return (
-            <div key={meeting}>
+            <div key={meeting} style={{ display: 'flex' }}>
               <Chat {...props} />
               <ViewProfile {...props} />
               <Suggestion {...props} />

@@ -121,7 +121,7 @@ const ViewLawyers = () => {
                                 {new Date(
                                   lawyer.startTime.seconds * 1000
                                 ).getMinutes()}
-                                0 -{" "}
+                                 -{" "}
                                 {new Date(
                                   lawyer.endTime.seconds * 1000
                                 ).getHours()}
@@ -129,7 +129,7 @@ const ViewLawyers = () => {
                                 {new Date(
                                   lawyer.endTime.seconds * 1000
                                 ).getMinutes()}
-                                0 hrs
+                                 hrs
                               </Typography>
                             </Grid>
 

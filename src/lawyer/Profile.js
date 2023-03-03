@@ -30,7 +30,7 @@ const LawyerProfile = () => {
                 {/* LAWYER'S PROFILE IMAGE */}
                 <Grid item xs={12} md={4} lg={3}>
                   <Paper sx={upload}>
-                    <Title>{lawyer.name}</Title>
+                    <Title>{lawyer.name.toUpperCase()}</Title>
                     <Avatar
                       alt="Lawyer_Profile_Image"
                       src={`${lawyer.imageURL}`}
@@ -49,7 +49,7 @@ const LawyerProfile = () => {
                     </Typography>
                     <br />
 
-                    <Typography>Name: {lawyer.name}</Typography>
+                    <Typography style={{ textTransform: 'capitalize'}}>Name: {lawyer.name}</Typography>
                     <Typography>
                       Law Speciality: {lawyer.lawSpeciality}
                     </Typography>

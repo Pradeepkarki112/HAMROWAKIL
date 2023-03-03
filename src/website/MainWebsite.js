@@ -12,7 +12,9 @@ import Service from './Service';
 function MainWebsite() {
   return (
     <div className='bg-[#000300]'>
-      <Navbar />
+      <div style={{ position: 'sticky', top: 0, zIndex: 1 }} className='bg-[#000300] h-20'>
+        <Navbar />
+      </div>
       <Hero />
       <Analytics />
       <Newsletter />
