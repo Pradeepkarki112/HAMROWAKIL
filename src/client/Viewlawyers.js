@@ -111,7 +111,7 @@ const ViewLawyers = () => {
                                 sx={{ fontWeight: "bold" }}
                               >
                                 Name: {lawyer.name} <br />
-                                Speciality: {lawyer.medicalSpeciality} <br />
+                                Speciality: {lawyer.lawSpeciality} <br />
                                 City: {lawyer.city} <br />
                                 Time Slot :{" "}
                                 {new Date(
