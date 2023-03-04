@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import favicon from '../assets/favicon.png';
@@ -15,11 +16,11 @@ const Navbar = () => {
       <img src={favicon} className="w-20 pt-8 hover:scale-105 duration-300 cursor-pointer mx-auto mt-[-2.8rem] bg-transparent" alt='Logo' />
       <h1 className='w-full text-3xl cursor-pointer font-bold text-aqua'>HAMROWAKIL</h1>
       <ul className='hidden md:flex'>
-        <li className='p-4 button-hover'>Home</li>
+      <Link to="/"><li className='p-4 button-hover'>Home</li></Link>
         <li className='p-4 button-hover'>Lawyers</li>
-        <li className='p-4 button-hover'>Services</li>
-        <li className='p-4 button-hover' >About</li>
-        <li className='p-4 button-hover'>Contact</li>
+        <Link to="/features"><li className='p-4 button-hover'>Services</li></Link>
+        <Link to="/aboutus"><li className='p-4 button-hover' >About</li></Link>
+        <Link to="/contactus"><li className='p-4 button-hover'>Contact</li></Link>
       </ul>
       <div onClick={handleNav} className='block md:hidden'>
           {nav ? <CloseIcon /> : <MenuIcon />}
@@ -28,9 +29,9 @@ const Navbar = () => {
         <h1 className='w-full text-3xl font-bold text-aqua m-4'>HAMROWAKIL</h1>
           <li className='p-4 border-b button-hover border-gray-600'>Home</li>
           <li className='p-4 border-b button-hover border-gray-600'>Lawyers</li>
-          <li className='p-4 border-b button-hover border-gray-600'>Services</li>
-          <li className='p-4 border-b button-hover border-gray-600'>About</li>
-          <li className='p-4 border-b button-hover border-gray-600'>Contact</li>
+          <Link to="/features"><li className='p-4 border-b button-hover border-gray-600'>Services</li></Link>
+          <Link to="/aboutus"><li className='p-4 border-b button-hover border-gray-600'>About</li></Link>
+          <Link to="/contactus"><li className='p-4 border-b button-hover border-gray-600'>Contact</li></Link>
       </ul>
     </div>
   );

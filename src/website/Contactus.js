@@ -1,20 +1,35 @@
 import React, { useState } from "react";
+import Navbar from './Navbar';
+import Footer from './Footer';
 
-const ContactUs = () => {
+const Contactus = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+    setAlertMessage("Form submitted successfully!");
+    setTimeout(() => {
+      setAlertMessage("");
+      setName('');
+      setEmail('');
+      setMessage('');
+    }, 3000);
   };
 
   return (
-    <div className="bg-gray-100 py-10">
+    <div style={{ maxWidth: '1550px', margin: '0 auto' }}  className='bg-[#000300]'>
+    <Navbar />
+    <div className="bg-gray-100 py-24">
       <div className="max-w-3xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Contact Us</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">Contact Us</h1>
         <form onSubmit={handleSubmit}>
+        {alertMessage && (
+        <div className="bg-green-200 p-2 mb-4 text-green-800">{alertMessage}</div>
+      )}
           <div className="mb-6">
             <label htmlFor="name" className="block text-gray-900 font-bold mb-2">
               Name
@@ -65,7 +80,9 @@ const ContactUs = () => {
         </form>
       </div>
     </div>
+    <Footer />
+    </div>
   );
 };
 
-export default ContactUs;
+export default Contactus;

@@ -9,6 +9,7 @@ import { CssBaseline } from "@mui/material";
 import Home from './website/MainWebsite';
 import Contactus from './website/Contactus';
 import Aboutus from "./website/Aboutus";
+import Features from "./website/Features";
 
 // Lawyer'S PAGES
 import LawyerSignup from "./lawyer/Signup";
@@ -46,7 +47,6 @@ import Clients from "./admin/Clients";
 import CreatePost from "./admin/Createpost";
 import LatestUpdates from "./admin/Latestupdates";
 import Feedbacks from "./admin/Feedbacks";
-import Contact from "./website/Contactus";
 
 
 
@@ -78,8 +78,9 @@ const App = () => {
               <AuthProvider>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/Contactus" component={Contactus} />
-                <Route exact path="/Aboutus" component={Aboutus} />
+                <Route exact path="/contactus" component={Contactus} />
+                <Route exact path="/aboutus" component={Aboutus} />
+                <Route exact path="/features" component={Features} />
 
                 {/* Lawyer Pages */}
                 <Route exact path="/lawyersignup" component={LawyerSignup} />
@@ -224,9 +225,11 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/contactus" component={Contactus} />
+          <Route exact path="/aboutus" component={Aboutus} />
+          <Route exact path="/features" component={Features} />
           <Route exact path="/lawyersignup" component={LawyerSignup} />
           <Route exact path="/lawyersignin" component={LawyerSignin} />
-          <Route exact path="/" component={Home} />
           <Route
             exact
             path="/clientsignup"

@@ -123,7 +123,10 @@ const Review = () => {
               <div>
               <div
                 key={item.id}
-                className="flex flex-col w-96 h-96 shadow-2xl bg-[#FFFF] p-4 sm:my-10 my-8 rounded-lg "
+                className="flex flex-col w-96 h-96 shadow-xl bg-white p-4 sm:my-10 my-8 rounded-lg border border-gray-300"
+                style={{
+                  boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23)',
+                }}
               >
                 <img
                   className="w-20 rounded-full mx-auto mt-[-3rem] bg-transparent"
