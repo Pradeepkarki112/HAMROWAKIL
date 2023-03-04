@@ -11,7 +11,7 @@ const Aboutus = () => {
       <div className="flex flex-wrap -mx-4">
         <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
           <div className="rounded-lg overflow-hidden">
-            <img src='/images/manish.jpg' alt="Team member" />
+            <img src='/images/manish.jpg' alt="Team member" width="300" height="300" />
             <div className="p-6">
               <h3 className="text-lg font-medium mb-2">Manish Thapaliya</h3>
               <p className="text-gray-600 mb-4">Founder</p>
@@ -27,7 +27,7 @@ const Aboutus = () => {
         </div>
         <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
           <div className="rounded-lg overflow-hidden">
-          <img src='/images/pradeep.jpg' alt="Team member" />
+          <img src='/images/pradeep.jpg' alt="Team member" width="300" height="300" />
             <div className="p-6">
               <h3 className="text-lg font-medium mb-2">Pradeep Karki</h3>
               <p className="text-gray-600 mb-4">Founder</p>
@@ -43,7 +43,7 @@ const Aboutus = () => {
         </div>
         <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
           <div className="rounded-lg overflow-hidden">
-          <img src='/images/anuj.jpg' alt="Team member" />
+          <img src='/images/anuj.jpg' alt="Team member" width="300" height="300" />
             <div className="p-6">
               <h3 className="text-lg font-medium mb-2">Anuj Puri</h3>
               <p className="text-gray-600 mb-4">Founder</p>
