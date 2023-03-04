@@ -30,15 +30,17 @@ export const paper = {
 };
 
 export const listItem = {
-  border: "2px solid #0d7da5",
-  borderRadius: "25px",
-  margin: "2px",
-  boxShadow: 2,
-  backgroundColor: "#e6f7fd",
+  margin: "10px",
+  padding: "10px",
+  border: "1px solid #ccc",
+  borderRadius: "5px",
+  backgroundColor: "#f7f7f7",
+  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
+  transition: "box-shadow 0.2s ease-in-out",
   "&:hover": {
-    backgroundColor: "#d0f0fb",
-    boxShadow: 3,
-    border: "3px solid #0d7da5",
+    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
+    transition: "box-shadow 0.2s ease-in-out",
+    transform: "translateY(-1px)",
   },
 };
 

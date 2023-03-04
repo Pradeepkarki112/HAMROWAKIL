@@ -106,9 +106,9 @@ const ViewLawyers = () => {
                             <Grid item xs={12} sm={6} md={6}>
                               <Typography
                                 variant="h6"
-                                color="primary"
+                                color="black"
                                 gutterBottom
-                                sx={{ fontWeight: "bold" }}
+                                // sx={{ fontWeight: "bold" }}
                               >
                                 Name: {lawyer.name} <br />
                                 Speciality: {lawyer.lawSpeciality} <br />
@@ -121,7 +121,7 @@ const ViewLawyers = () => {
                                 {new Date(
                                   lawyer.startTime.seconds * 1000
                                 ).getMinutes()}
-                                 -{" "}
+                                 0-{" "}
                                 {new Date(
                                   lawyer.endTime.seconds * 1000
                                 ).getHours()}
@@ -129,7 +129,7 @@ const ViewLawyers = () => {
                                 {new Date(
                                   lawyer.endTime.seconds * 1000
                                 ).getMinutes()}
-                                 hrs
+                                 0hrs
                               </Typography>
                             </Grid>
 
