@@ -151,7 +151,7 @@ const ClientSignup = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5" sx={{ fontWeight: "bold" }}>
-              client Sign Up
+              Client Sign Up
             </Typography>
             <Box component="form" noValidate onSubmit={handleSignup}>
               {/* ERROR ALERTS */}

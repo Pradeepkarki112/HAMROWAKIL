@@ -46,7 +46,7 @@ const PastAppointments = (props) => {
                         appointment.timeSlot.seconds * 1000
                       ).getMinutes()}
                       <br />
-                      <b>Symptoms:</b> {appointment.markings}
+                      <b>Case Details:</b> {appointment.markings}
                     </Typography>
                   </Grid>
 

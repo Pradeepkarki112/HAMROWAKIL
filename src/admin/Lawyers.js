@@ -21,7 +21,7 @@ const Lawyers = () => {
     });
   }, []);
 
-  // FUNCTION TO VERIFY DOCTOR'S PROFILE
+  // FUNCTION TO VERIFY LAWYER'S PROFILE
   const handleVerify = (uid) => {
     db.collection("lawyers").doc(uid).update({
       isVerified: "true",
@@ -35,7 +35,7 @@ const Lawyers = () => {
     });
   };
 
-  // FUNCTION TO UNVERIFY DOCTOR'S PROFILE
+  // FUNCTION TO UNVERIFY LAWYER'S PROFILE
   const handleUnverify = (uid) => {
     db.collection("lawyers").doc(uid).update({
       isVerified: "false",
@@ -101,7 +101,7 @@ const Lawyers = () => {
             </Paper>
           </Grid>
 
-          {/* VERIFIED DOCTORS */}
+          {/* VERIFIED LAWYER */}
           <Grid item xs={12}>
             <Typography variant="h5" sx={typography}>
               Verified Lawyers
@@ -118,15 +118,15 @@ const Lawyers = () => {
                               Name: {lawyer.name} <br />
                               Age: {lawyer.age} years <br />
                               Gender: {lawyer.gender} <br />
-                              Medical Speciality: {
-                                lawyer.medicalSpeciality
+                              Law Speciality: {
+                                lawyer.lawSpeciality
                               }{" "}
                               <br />
                               Degree: {lawyer.degree} <br />
                               Experience: {lawyer.experience} years <br />
                               Reg. No.: {lawyer.regNumber} <br />
-                              State Medical Council:{" "}
-                              {lawyer.stateMedicalCouncil} <br />
+                              State Law Council:{" "}
+                              {lawyer.stateLawCouncil} <br />
                               Address: {lawyer.address1}, {lawyer.address2},{" "}
                               {lawyer.city}, {lawyer.state}, {lawyer.country},{" "}
                               {lawyer.pincode}

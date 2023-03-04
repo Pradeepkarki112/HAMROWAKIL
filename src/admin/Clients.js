@@ -21,7 +21,7 @@ const Clients = () => {
     });
   }, []);
 
-  // FUNCTION TO VERIFY DOCTOR'S PROFILE
+  // FUNCTION TO VERIFY CLIENT'S PROFILE
   const handleVerify = (uid) => {
     db.collection("clients").doc(uid).update({
       isVerified: "true",
@@ -88,7 +88,7 @@ const Clients = () => {
             </Paper>
           </Grid>
 
-          {/* VERIFIED PATIENTS */}
+          {/* VERIFIED CLIENTS */}
           <Grid item xs={12}>
             <Typography variant="h5" sx={typography}>
               Verified Clients

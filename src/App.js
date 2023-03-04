@@ -8,6 +8,7 @@ import { CssBaseline } from "@mui/material";
 // import Home from "./home/home";
 import Home from './website/MainWebsite';
 import Contactus from './website/Contactus';
+import Aboutus from "./website/Aboutus";
 
 // Lawyer'S PAGES
 import LawyerSignup from "./lawyer/Signup";
@@ -78,6 +79,7 @@ const App = () => {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/Contactus" component={Contactus} />
+                <Route exact path="/Aboutus" component={Aboutus} />
 
                 {/* Lawyer Pages */}
                 <Route exact path="/lawyersignup" component={LawyerSignup} />
