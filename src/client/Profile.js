@@ -49,7 +49,6 @@ const ClientProfile = () => {
                     <Typography>Name: {client.name}</Typography>
                     <Typography>Age: {client.age}</Typography>
                     <Typography>Gender: {client.gender}</Typography>
-                    <Typography>Blood Group: {client.bloodGroup}</Typography>
                     <Typography>
                       Address: {client.address1}, {client.address2},{" "}
                       {client.city}, {client.state}, {client.country}
