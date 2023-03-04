@@ -49,7 +49,7 @@ export const avatar = {
 
 export const listItem = {
   border: "2px solid #0d7da5",
-  borderRadius: "25px",
+  borderRadius: "5px",
   margin: "2px",
   boxShadow: 2,
   backgroundColor: "#e6f7fd",

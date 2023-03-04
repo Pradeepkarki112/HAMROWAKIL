@@ -96,7 +96,8 @@ const Chat = (props) => {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
         fullWidth
-        maxWidth="xs"
+        maxWidth="md"
+        maxHeight="sm"
       >
         <DialogTitle id="form-dialog-title">CHAT</DialogTitle>
         <Divider />
@@ -154,6 +155,7 @@ const Chat = (props) => {
   <Box sx={{ display: "flex", alignItems: "flex-end" }}>
     <TextField
       id="filled-basic"
+      required
       color="primary"
       placeholder="Enter message..."
       value={message}
@@ -168,6 +170,11 @@ const Chat = (props) => {
   </Box>
 </form>
         </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" className="close-button">
+            Close
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../Firebase";
 import { useAuth } from "../../contexts/AuthContext";
 import {
+  Box,
   IconButton,
   Button,
   TextField,
@@ -14,12 +15,11 @@ import {
   ListItem,
   Typography,
   Divider,
-  Tooltip
+  Tooltip,
 } from "@mui/material";
 import MedicationIcon from "@mui/icons-material/Medication";
 import SendIcon from "@mui/icons-material/Send";
-import DownloadIcon from "@mui/icons-material/Download";
-import { jsPDF } from "jspdf";
+
 
 const Suggestion = (props) => {
   const [open, setOpen] = useState(false);
@@ -36,6 +36,8 @@ const Suggestion = (props) => {
   var clientGender = "";
 
   var date = new Date().toLocaleDateString("en-US");
+
+
 
   // FETCH Lawyer'S DATA FROM DB
   useEffect(() => {
@@ -105,38 +107,13 @@ const Suggestion = (props) => {
         senderUid: props.lawyerUID,
         senderEmail: currentUser.email,
         sentAt: new Date(),
-        appointmentID: props.meetingID
+        appointmentID: props.meetingID,
       });
 
     setSuggestion("");
   };
 
-  //DOWNLOAD Suggestion FUNCTION
-  const downloadSuggestion = () => {
-    var doc = new jsPDF();
-    var i = 20;
-    var j = 120;
-    doc.setFontSize("15");
-    doc.addImage("/images/Medicare.png", "PNG", 5, 5, 200, 15);
-    doc.text("Date: ", 20, 30);
-    doc.text(date, 50, 30);
-    doc.text("Lawyer: ", 20, 40);
-    doc.text(lawyerName, 50, 40);
-    doc.text("Law Speciality: ", 20, 50);
-    doc.text(lawyerSpeciality, 70, 50);
-    doc.text("Client: ", 20, 70);
-    doc.text(clientName, 50, 70);
-    doc.text("Age: ", 20, 80);
-    doc.text(clientAge, 50, 80);
-    doc.text("Gender: ", 20, 90);
-    doc.text(clientGender, 50, 90);
-    doc.text("Suggestion: ", 20, 110);
-    suggestions.map((prescript) => {
-      doc.text(prescript.suggestion, i, j);
-      j = j + 10;
-    });
-    doc.save("lawyersuggestion.pdf");
-  };
+
 
   return (
     <div>
@@ -149,30 +126,39 @@ const Suggestion = (props) => {
       </Tooltip>
 
       {/* Suggestion DIALOG BOX */}
-
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+       
+        maxHeight="sm"
       >
         <DialogTitle id="form-dialog-title">SUGGESTION</DialogTitle>
         <Divider />
         <DialogContent>
           <DialogContentText>
             <List>
-              <ListItem style={{ margin: "0" }}>
-                <Typography sx={{ fontWeight: "bold" }}>
-                  {currentUser.email}
-                </Typography>
-              </ListItem>
+
               {suggestions.map((prescript) => {
                 if (prescript.appointmentID === props.meetingID)
                   return (
-                    <div key={prescript}>
-                      <ListItem style={{ margin: "0" }}>
-                        <Typography>{prescript.suggestion}</Typography>
+                    <>
+                      <ListItem style={{ margin: "0", display: "flex", justifyContent: "justify" }}>
+                        <Typography
+                          sx={{
+                            maxWidth: "70%",
+                            backgroundColor: "#f3f3f3",
+                            borderRadius: "15px",
+                            padding: "10px",
+                            wordWrap: "break-word",
+                            textAlign: "center",
+                          }}
+                        >
+                          {prescript.suggestion}
+                        </Typography>
                       </ListItem>
-                    </div>
+
+                    </>
                   );
               })}
             </List>
@@ -181,33 +167,26 @@ const Suggestion = (props) => {
           {/* FORM TO WRITE Suggestion */}
 
           <form onSubmit={sendSuggestion}>
-            <TextField
-              id="outlined"
-              required
-              label="Suggestion"
-              color="primary"
-              placeholder="Enter suggestion..."
-              value={suggestion}
-              onChange={(e) => {
-                setSuggestion(e.target.value);
-              }}
-            />
-            <Button type="submit" startIcon={<SendIcon />} />
+          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+    <TextField
+      id="filled-basic"
+      color="primary"
+      placeholder="Enter suggestion..."
+      value={suggestion}
+      onChange={(e) => {
+        setSuggestion(e.target.value);
+      }}
+      fullWidth
+      required
+      autoFocus
+      sx={{ mr: 1 }}
+    />
+    <Button type="submit" startIcon={<SendIcon />} />
+  </Box>
           </form>
         </DialogContent>
         <DialogActions>
-          {/* DOWNLOAD REPORT BUTTON */}
-          {/* <Button
-            onClick={downloadSuggestion}
-            style={{
-              textTransform: "none",
-              margin: "2%"
-            }}
-            startIcon={<DownloadIcon />}
-          >
-            Download Suggestion
-          </Button> */}
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" className="close-button">
             Close
           </Button>
         </DialogActions>
