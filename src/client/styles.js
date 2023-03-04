@@ -48,13 +48,13 @@ export const avatar = {
 };
 
 export const listItem = {
-  border: "2px solid #0d7da5",
+  // border: "2px solid #0d7da5",
   borderRadius: "5px",
   margin: "2px",
-  boxShadow: 2,
-  backgroundColor: "#e6f7fd",
+  boxShadow: 1,
+  // backgroundColor: "#e6f7fd",
   "&:hover": {
-    backgroundColor: "#d0f0fb",
+    // backgroundColor: "#d0f0fb",
     boxShadow: 3,
     border: "3px solid #0d7da5",
   },
