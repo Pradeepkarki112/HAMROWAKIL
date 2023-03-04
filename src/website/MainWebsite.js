@@ -11,7 +11,7 @@ import Service from './Service';
 
 function MainWebsite() {
   return (
-    <div className='bg-[#000300]'>
+    <div style={{ maxWidth: '1550px', margin: '0 auto' }} className='bg-[#000300]'>
       <div style={{ position: 'sticky', top: 0, zIndex: 1 }} className='bg-[#000300] h-20'>
         <Navbar />
       </div>
