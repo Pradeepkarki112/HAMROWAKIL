@@ -89,7 +89,7 @@ const Aboutus = () => {
       <div class="flex items-center justify-center pt-16">
         <div class="w-1/12 lg:w-1/2 flex items-center justify-center pt-24">
           <img
-            src='/images/Client__Signup.jpeg'
+            src="/images/Client__Signup.jpeg"
             alt="Hamrowakil Logo"
             className="w-auto object-contain mx-auto"
           />
@@ -106,13 +106,12 @@ const Aboutus = () => {
             help you with your specific needs.
           </p>
           <p class="text-lg mb-5">
-            At Hamrowakil, we take pride in
-            our commitment to providing high-quality legal services to our
-            clients. Our team of experienced lawyers is dedicated to delivering
-            personalized and timely solutions to our clients' legal issues. We
-            believe that every client deserves the best legal representation,
-            and we work tirelessly to ensure that our services meet and exceed
-            their expectations.
+            At Hamrowakil, we take pride in our commitment to providing
+            high-quality legal services to our clients. Our team of experienced
+            lawyers is dedicated to delivering personalized and timely solutions
+            to our clients' legal issues. We believe that every client deserves
+            the best legal representation, and we work tirelessly to ensure that
+            our services meet and exceed their expectations.
           </p>
         </div>
       </div>
@@ -128,17 +127,17 @@ const Aboutus = () => {
             case investigation.
           </p>
           <p class="text-lg mb-5">
-            At Hamrowakil, we are committed to upholding the
-            highest standards of professionalism and ethics in the legal
-            profession. Our team of lawyers undergoes a rigorous verification
-            process to ensure that they meet our strict requirements for
-            expertise and integrity. We also offer ongoing training and support
-            to our lawyers to ensure that they stay up-to-date with the latest
-            legal developments and best practices. We are proud to be a part of
-            the growing legal tech industry in Nepal and are excited to continue
-            innovating and improving our platform to better serve our clients.
-            Thank you for choosing Hamrowakil, and we look forward to helping
-            you with your legal needs.
+            At Hamrowakil, we are committed to upholding the highest standards
+            of professionalism and ethics in the legal profession. Our team of
+            lawyers undergoes a rigorous verification process to ensure that
+            they meet our strict requirements for expertise and integrity. We
+            also offer ongoing training and support to our lawyers to ensure
+            that they stay up-to-date with the latest legal developments and
+            best practices. We are proud to be a part of the growing legal tech
+            industry in Nepal and are excited to continue innovating and
+            improving our platform to better serve our clients. Thank you for
+            choosing Hamrowakil, and we look forward to helping you with your
+            legal needs.
           </p>
         </div>
         <div class="lg:w-1/2 flex items-center justify-center">
@@ -191,8 +190,8 @@ const Aboutus = () => {
                     component="h2"
                     sx={message}
                   >
-                    "We believe in pushing boundaries and exceeding
-                    expectations."
+                    "We are dedicated to delivering the best customer experience
+                    possible."
                   </Typography>
                   <Typography variant="h6">- Pradeep</Typography>
                 </CardContent>

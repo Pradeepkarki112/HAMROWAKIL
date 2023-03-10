@@ -10,7 +10,6 @@ import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import CallEndIcon from "@mui/icons-material/CallEnd";
 import { controls, controlsToolbar } from "../styles";
 import Controls from "./Controls";
-
 // import Participants from "./participants";
 // import WhiteBoard from "./whiteBoard/whiteBoard";
 
@@ -41,16 +40,18 @@ const Video = (props) => {
 };
 
 const videoConstraints = {
-  height: window.innerHeight / 2,
+  peersRefheight: window.innerHeight / 2,
   width: window.innerWidth / 2,
 };
+const socket = io('http://192.168.18.20:5000');
+
 
 const LawyerRoom = (props) => {
   const [peers, setPeers] = useState([]);
   const [stream, setStream] = useState();
   const [audioMuted, setAudioMuted] = useState(false);
   const [videoMuted, setVideoMuted] = useState(false);
-  const socketRef = useRef();
+
   const userVideo = useRef();
   const peersRef = useRef([]);
   const userStream = useRef();
@@ -58,9 +59,6 @@ const LawyerRoom = (props) => {
   const roomID = props.match.params.roomID;
 
   useEffect(() => {
-    socketRef.current = io.connect("/");
-
-    // console.log("RES",io.connect("http://localhost:5000/"))
     
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
@@ -68,11 +66,11 @@ const LawyerRoom = (props) => {
         userVideo.current.srcObject = stream;
         setStream(stream);
         userStream.current = stream;
-        socketRef.current.emit("join room", roomID);
-        socketRef.current.on("all users", (users) => {
+        socket.emit("join room", roomID);
+        socket.on("all users", (users) => {
           const peers = [];
           users.forEach((userID) => {
-            const peer = createPeer(userID, socketRef.current.id, stream);
+            const peer = createPeer(userID, socket.id, stream);
             peersRef.current.push({
               peerID: userID,
               peer,
@@ -85,7 +83,7 @@ const LawyerRoom = (props) => {
           setPeers(peers);
         });
 
-        socketRef.current.on("user joined", (payload) => {
+        socket.on("user joined", (payload) => {
           const peer = addPeer(payload.signal, payload.callerID, stream);
           peersRef.current.push({
             peerID: payload.callerID,
@@ -100,12 +98,14 @@ const LawyerRoom = (props) => {
           setPeers((users) => [...users, peerObj]);
         });
 
-        socketRef.current.on("receiving returned signal", (payload) => {
+        socket.on("receiving returned signal", (payload) => {
           const item = peersRef.current.find((p) => p.peerID === payload.id);
-          item.peer.signal(payload.signal);
+          if (item && !item.peer.destroyed) { // Check if peer still exists
+            item.peer.signal(payload.signal);
+          }
         });
 
-        socketRef.current.on("user left", (id) => {
+        socket.on("user left", (id) => {
           const peerObj = peersRef.current.find((p) => p.peerID === id);
           if (peerObj) {
             peerObj.peer.destroy();
@@ -115,10 +115,6 @@ const LawyerRoom = (props) => {
           setPeers(peers);
         });
       });
-
-      console.log("Peers",peers)
-      
-      console.log("SocketRef",socketRef)
   }, []);
 
   function createPeer(userToSignal, callerID, stream) {
@@ -129,7 +125,7 @@ const LawyerRoom = (props) => {
     });
 
     peer.on("signal", (signal) => {
-      socketRef.current.emit("sending signal", {
+      socket.emit("sending signal", {
         userToSignal,
         callerID,
         signal,
@@ -147,7 +143,7 @@ const LawyerRoom = (props) => {
     });
 
     peer.on("signal", (signal) => {
-      socketRef.current.emit("returning signal", { signal, callerID });
+      socket.emit("returning signal", { signal, callerID });
     });
 
     peer.signal(incomingSignal);
@@ -229,16 +225,10 @@ const LawyerRoom = (props) => {
 
   return (
     <Container style={{ backgroundColor: "#063547", width: "100vw" }}>
-
       <StyledVideo controls muted ref={userVideo} autoPlay playsInline />
-      
-      {JSON.stringify(peers)}
-
-      {peers.map((peer) => {
-        return <Video key={peer.peerID} peer={peer.peer} />;
-
-      })}
-     
+      {peers.map((peer, index) => { // pass index as the second argument
+    return <Video key={peer.peerID + '-' + index} peer={peer.peer} />;
+  })}
 
       {/* CONTROLS */}
 
@@ -247,7 +237,9 @@ const LawyerRoom = (props) => {
           {audioControl}
           {videoControl}
           <Controls />
-          
+          {/* <Participants />
+          <WhiteBoard />
+           */}
           <Tooltip title="End Call" placement="top">
             <IconButton
               onClick={leaveMeeting}
